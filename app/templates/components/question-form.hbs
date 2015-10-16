@@ -1,0 +1,6 @@
+{{input value=question.body}}
+{{textarea value=question.answers}}
+{{textarea value=question.correctAnswers}}
+{{textarea value=question.explanation}}
+{{input type="number" value=question.repositoryId}}
+<button class="submit-new-question" {{action "submitForm" question}}>Créer</button>
