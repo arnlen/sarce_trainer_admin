@@ -1,3 +1,5 @@
 <h2 class="title">Questions</h2>
 
-{{outlet}}
+{{#each model as |storedQuestion|}}
+  <li>{{storedQuestion.id}} - {{storedQuestion.body}}</li>
+{{/each}}
