@@ -1,10 +1,37 @@
-<h1 class="title">{{link-to 'Sarce Trainer' 'index'}}</h1>
+{{#paper-nav-container}}
+  {{#paper-sidenav class="md-sidenav-left md-whiteframe-z2" locked-open="gt-sm"}}
 
-<div class="navigation-bar">
-  <ul>
-    <li>{{link-to 'Question list' 'questions'}}</li>
-    <li>{{link-to 'New question' 'new-question'}}</li>
-  </ul>
-</div>
+    {{#paper-toolbar}}
+      <div class="md-toolbar-tools">
+        <div class="logo">
+          {{link-to "Sarce Trainer" 'index'}}
+        </div>
+      </div>
+    {{/paper-toolbar}}
 
-{{outlet}}
+    {{#paper-content}}
+      {{#paper-list}}
+        {{#paper-item action="transitionTo" param="questions"}}Liste des questions{{/paper-item}}
+        {{#paper-item action="transitionTo" param="new-question"}}Nouvelle question{{/paper-item}}
+      {{/paper-list}}
+    {{/paper-content}}
+
+  {{/paper-sidenav}}
+
+  <div layout="column" tabindex="-1" role="main" flex>
+
+    {{#paper-toolbar}}
+      <div class="md-toolbar-tools">
+        {{#paper-sidenav-toggle as |toggle|}}
+        {{#paper-button target=toggle action="toggleMenu" icon-button=true}}{{paper-icon icon="menu"}}{{/paper-button}}
+        {{/paper-sidenav-toggle}}
+        <span class="md-breadcrumb-page">{{pageTitle}}</span>
+      </div>
+    {{/paper-toolbar}}
+
+    {{#paper-content class="md-padding"}}
+      {{outlet}}
+    {{/paper-content}}
+
+  </div>
+{{/paper-nav-container}}
