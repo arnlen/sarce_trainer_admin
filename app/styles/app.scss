@@ -1,1 +1,6 @@
- @import 'ember-paper';
+@import 'ember-paper';
+@import 'sidebar';
+
+#ember398, #ember420 {
+  height: 100%;
+}
