@@ -1,5 +1,37 @@
-<h2 class="title">Questions</h2>
+<table>
+  <tr>
+    <th>Intitulé de la question</th>
+    <th>Réponses</th>
+    <th>Réponse correcte</th>
+    <th>Explication</th>
+    <th>Référentiel</th>
+  </tr>
 
-{{#each model as |storedQuestion|}}
-  <li>{{storedQuestion.id}} - {{storedQuestion.body}}</li>
-{{/each}}
+  {{#each model as |storedQuestion|}}
+    <tr>
+      <td>{{storedQuestion.body}}</td>
+      <td>{{storedQuestion.answers}}</td>
+      <td>{{storedQuestion.correct_answers}}</td>
+      <td>{{storedQuestion.explanation}}</td>
+      <td>{{storedQuestion.repository_id}}</td>
+    </tr>
+  {{/each}}
+</table>
+
+{{#paper-content class="md-whiteframe-z1 list-demo"}}
+  {{#paper-list}}
+    {{#each model as |storedQuestion|}}
+      {{#paper-item class="md-3-line"}}
+        <img src={{item.face}} alt={{item.who}} class="md-avatar">
+        <div class="md-list-item-text">
+          <h3>{{storedQuestion.body}}</h3>
+          <h4>{{storedQuestion.answers}}</h4>
+          <h4>{{storedQuestion.explanation}}</h4>
+          <p>
+            {{item.notes}}
+          </p>
+        </div>
+      {{/paper-item}}
+    {{/each}}
+  {{/paper-list}}
+{{/paper-content}}

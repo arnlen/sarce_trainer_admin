@@ -1,6 +1,32 @@
-{{input value=question.body}}
-{{textarea value=question.answers}}
-{{textarea value=question.correctAnswers}}
-{{textarea value=question.explanation}}
-{{input type="number" value=question.repositoryId}}
-<button class="submit-new-question" {{action "submitForm" question}}>Créer</button>
+{{!-- {{#paper-content class="md-whiteframe-z1 grid-list-demo1"}} --}}
+
+  {{#paper-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6"
+  md-row-height-gt-md="1:1" md-row-height="2:2"
+  md-gutter="12px" md-gutter-gt-sm="8px"}}
+
+    {{#paper-grid-tile class="gray" md-rowspan="3" md-colspan="2" md-colspan-sm="1"}}
+      {{#paper-grid-tile-footer}}
+          #1: (3r x 2c)
+      {{/paper-grid-tile-footer}}
+    {{/paper-grid-tile}}
+
+    {{#paper-grid-tile class="green"}}
+      {{#paper-grid-tile-footer}}
+          #2: (1r x 1c)
+      {{/paper-grid-tile-footer}}
+    {{/paper-grid-tile}}
+
+  {{/paper-grid-list}}
+
+
+{{!-- {{/paper-content}} --}}
+
+
+
+{{paper-input label="Intitulé de la question" value=question.body}}
+{{paper-input textarea=true label="Réponses" value=question.answers}}
+{{paper-input textarea=true label="Réponse correcte" value=question.correctAnswers}}
+{{paper-input textarea=true label="Explication" value=question.explanation}}
+{{paper-input textarea=true label="Référentiel" value=question.repositoryId}}
+
+{{#paper-button raised=true primary=true action="submitForm, question"}}Créer{{/paper-button}}
